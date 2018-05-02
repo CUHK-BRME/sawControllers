@@ -83,7 +83,7 @@ protected:
     //! Position upper limit
     vctDoubleVec mPositionUpperLimit;
     //! Flag whether check joint limit
-    bool mCheckPositionLimit;
+    bool mCheckPositionLimit = true;
     vctBoolVec mPositionLimitFlagPrevious, mPositionLimitFlag;
 
     //! Effort lower limit
@@ -91,7 +91,7 @@ protected:
     //! Effort upper limit
     vctDoubleVec mEffortUpperLimit;
     //! Flag whether to apply effort limit
-    bool mApplyEffortLimit;
+    bool mApplyEffortLimit = false;
 
     //! Commanded joint efforts sent to IO level
     vctDoubleVec mEffortMeasure;
@@ -124,7 +124,7 @@ protected:
     vctDoubleVec mDeadBand;
 
     //! Enable mtsPID controller
-    bool mEnabled;
+    bool mEnabled = false;
 
     //! Enable individal joints
     vctBoolVec mJointsEnabled;
@@ -138,10 +138,10 @@ protected:
 
     // Flag to determine if this is connected to actual IO/hardware or
     // simulated
-    bool mIsSimulated;
+    bool mIsSimulated = false;
 
     // Counter of active joints
-    size_t mNumberOfActiveJoints;
+    size_t mNumberOfActiveJoints = 0;
 
     //! Configuration state table
     mtsStateTable mConfigurationStateTable;
@@ -157,7 +157,7 @@ protected:
         mtsFunctionWrite Coupling;
     } Events;
 
-    mtsInterfaceProvided * mInterface;
+    mtsInterfaceProvided * mInterface = nullptr;
 
     /**
      * @brief Reset encoder, clear e/ed/ei value

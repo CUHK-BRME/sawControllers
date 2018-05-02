@@ -44,11 +44,6 @@ mtsPID::mtsPID(const mtsTaskPeriodicConstructorArg & arg):
 
 void mtsPID::Init(void)
 {
-    mCheckPositionLimit = true,
-    mApplyEffortLimit = false,
-    mEnabled = false,
-    mIsSimulated = false,
-    mNumberOfActiveJoints = 0,
     AddStateTable(&mConfigurationStateTable);
     mConfigurationStateTable.SetAutomaticAdvance(false);
 }
